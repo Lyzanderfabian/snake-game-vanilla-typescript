@@ -1,24 +1,3 @@
-const router = () => {
-    const path = window.location.pathname;
-
-    if(path === "/home"){
-      renderHome();
-    } else if (path === "/settings"){
-      renderSettings();
-    }
-}
-
-const navigate = (path: string) => {
-    history.pushState({}, "", path)
-    router()
-}
-
-
-navigate("/home");
-
-
-
-
 
 
 const renderHome = () => {
@@ -58,8 +37,70 @@ const renderHome = () => {
 
         background!.append(square)
     }
+
+    const playButton = document.querySelector("#play-button");
+    const settingsButton = document.querySelector("#settings-button")
+
+    playButton!.addEventListener("click", (event) => {
+        navigate("/game");
+    })
+    settingsButton!.addEventListener("click", (event) => {
+        navigate("/settings");
+    })
 }
+
+
+const renderGame = () => {
+    const app = document.querySelector("#app");
+    app!.innerHTML = ``
+
+    const gameBoard = document.createElement("div");
+    gameBoard.classList.add("game-board");
+
+    const cellRow: number = 7;
+    const cellCol :number = 5;
+
+    for (let i = 0, j=0; i < cellRow * cellCol; i++) {
+        const cell = document.createElement("div");
+        cell.setAttribute("id", `cell-${i}`)
+        cell.classList.add(i % 2 === 0 ? "light-square" : "dark-square")
+        gameBoard.append(cell);
+    }
+    app!.append(gameBoard);
+
+
+}
+
+
+
 
 const renderSettings = () => {
-
+    const app = document.querySelector("#app");
+    app!.innerHTML = `<div class= "settings-board"> </div>`
 }
+
+const router = () => {
+    const path = window.location.pathname;
+
+    if(path === "/home"){
+      renderHome();
+    } else if (path === "/game") {
+        renderGame();
+    } else if (path === "/settings"){
+      renderSettings();
+    } 
+}
+
+const navigate = (path: string) => {
+    history.pushState({}, "", path)
+    router()
+}
+
+
+navigate("/home");
+
+
+
+
+
+

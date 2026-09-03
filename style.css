@@ -127,3 +127,18 @@
 .settings:hover {
     background-color: #0a5999;
 }
+
+
+.game-board {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 4rem);
+    grid-template-rows: repeat(5, 4rem);
+    border-top: #000 solid 8px;
+    border-bottom: #000 solid 8px;
+}   
+
+.cell {
+
+}
