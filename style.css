@@ -49,7 +49,13 @@
     height: 4rem;
     background-color: hsl(120, 100%, 20%);
     z-index: 2;
-    
+}
+
+.blue-square {
+    width: 4rem;
+    height: 4rem;
+    background-color: hsl(239, 90%, 46%);
+    z-index: 3;
 }
 
 .outer-container {
