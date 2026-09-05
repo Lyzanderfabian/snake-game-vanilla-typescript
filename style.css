@@ -1,3 +1,14 @@
+/*  const computedStyles = getComputedStyle(document.documentElement);
+    const currentBgColor = computedStyles.getPropertyValue('--main-bg-color').trim();
+
+    console.log(currentBgColor);  
+*/
+
+:root {
+    --cellRow: 1;
+    --cellCol: 1;
+}
+
 * {
     box-sizing: border-box;
     padding: 0px;
@@ -55,6 +66,13 @@
     width: 4rem;
     height: 4rem;
     background-color: hsl(239, 90%, 46%);
+    z-index: 4;
+}
+
+.red-square {
+    width: 4rem;
+    height: 4rem;
+    background-color: hsl(0, 90%, 46%);
     z-index: 3;
 }
 
@@ -134,17 +152,22 @@
     background-color: #0a5999;
 }
 
+.retry {
+    background-color: #4CAF50;
+    color: #fff;
+}
+.retry:hover {
+    background-color: #2b762f;
+}
+
 
 .game-board {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(7, 4rem);
-    grid-template-rows: repeat(5, 4rem);
+    grid-template-columns: repeat(var(--cellCol), 4rem);
+    grid-template-rows: repeat(var(--cellRow), 4rem);
     border-top: #000 solid 8px;
     border-bottom: #000 solid 8px;
 }   
 
-.cell {
-
-}
